@@ -1,6 +1,6 @@
 export interface BidRequest {
     sym: string;
-    type: string;
+    typ?: string;
     amt: number;
     rate: number;
     ts?: number;
