@@ -3,7 +3,7 @@ import config from "config"
 import { createHmac } from "crypto"
 import axios from "../axios"
 import { BidRequest, BidResponse } from "../interface/bid.interface"
-import { AppError, internalServerError } from "../interface/err.interface"
+import { AppError, internalServerError } from "../err/error"
 import { TickerRequest, TickerResponse } from "../interface/ticker.interface"
 
 const basePath = "/market"
