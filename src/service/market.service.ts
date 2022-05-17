@@ -7,10 +7,14 @@ import { AppError, internalServerError } from "../err/error"
 import { TickerRequest, TickerResponse } from "../interface/ticker.interface"
 
 const basePath = "/market"
+const frontKey = "THB_"
 
 export const getTickerInfo = async (data: TickerRequest): Promise<TickerResponse | AppError> => {
     let respErr
-    const resp = await axios.get<TickerResponse>(`${basePath}/ticker?sym=${data.sym}`).catch(err => {
+    let sym = data.sym
+    if (!isIncludeTHB(sym)) sym = addTHBatFront(sym)
+
+    const resp = await axios.get<TickerResponse>(`${basePath}/ticker?sym=${sym}`).catch(err => {
         respErr = err
         log.error(err)
     })
@@ -29,7 +33,10 @@ export const placeBid = async (data: BidRequest): Promise<BidResponse | AppError
     if (tsErr || !ts) return internalServerError
 
     const req = data;
+
+    if (!isIncludeTHB(req.sym)) req.sym = addTHBatFront(req.sym)
     req.ts = ts.data
+    req.typ = "limit";
 
     const signature = signJson(req);
     req.sig = signature;
@@ -62,3 +69,11 @@ const signJson = (data: any): string => {
     log.info(`Signature : ${h}`)
     return h;
 }
+
+const addTHBatFront = (sym: string) => {
+    return frontKey + sym
+}
+
+const isIncludeTHB = (sym: string) => {
+    return sym.includes(frontKey)
+}   
