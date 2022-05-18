@@ -2,6 +2,13 @@
 
 This api is built for using bitkub api easier.
 
+## Table of content
+* [Base URL](#base-url)
+* [Endpoint types](#endpoint-types)
+* [API Documentation](#api-documentation)
+* [Authentication](#authentication)
+* [How to run the application?](#how-to-run-the-application)
+
 ## Base URL
 
 * The base URL is: [http://localhost:8080](http://localhost:8080)
@@ -103,3 +110,9 @@ Test creating a buy order (no balance is deducted).
 ## Authentication
 * This application use [config](https://www.npmjs.com/package/config) to read config file.
 * There is [default.ts file](https://github.com/allsvensken-resum/bitkub-api/blob/main/config/default.ts) that you can set your `API_KEY` as **api_key** and `API_SECRET` as **api_secret_key** in javascript object in the file.
+
+## How to run the application?
+
+* Install the dependencies from package.json first with `npm install`
+* `npm run dev` to run the program with nodemon.
+* Make sure that NODE_ENV is not set to production.
