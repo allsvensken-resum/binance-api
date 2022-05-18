@@ -8,11 +8,11 @@ This api is built for using bitkub api easier.
 
 ## Endpoint types
 
-### Non-secure endpoints (DO NOT NEED AUTHENTICATION AND USE GET METHOD)
+### Non-secure endpoints (Do not need authentication)
 
 * [POST /api/market/ticker](#post-apimarketticker)
 
-### Secure endpoints [REQUIRED AUTHENTICATION](#authentication)
+### Secure endpoints ([Require authentication](#authentication))
 
 * [POST /api/market/place-bid/test](#post-apimarketplace-bidtest)
 
@@ -101,5 +101,5 @@ Test creating a buy order (no balance is deducted).
 ```
 
 ## Authentication
-* This application use [config](https://www.npmjs.com/package/config) to read config file
+* This application use [config](https://www.npmjs.com/package/config) to read config file.
 * There is [default.ts file](https://github.com/allsvensken-resum/bitkub-api/blob/main/config/default.ts) that you can set your `API_KEY` as **api_key** and `API_SECRET` as **api_secret_key** in javascript object in the file.
