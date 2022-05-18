@@ -11,7 +11,7 @@ export default function (app: Express) {
         res.sendStatus(200)
     })
 
-    app.get("/api/market/ticker", validateRequest(createTickerSchema), handleTickerInfo)
+    app.post("/api/market/ticker", validateRequest(createTickerSchema), handleTickerInfo)
     app.post("/api/market/place-bid/test", validateRequest(createBidSchema), handleBid)
 
 }
